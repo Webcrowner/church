@@ -1,0 +1,1024 @@
+
+
+
+
+
+
+
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Hamburger Button */
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown for smaller screens */
+}
+
+/* Logo Styling */
+.logo img {
+    height: 50px;
+}
+
+/* Navigation Menu */
+.nav {
+    flex: 1; /* Take available space */
+    text-align: right;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Space between menu items */
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+.nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Call-to-Action Buttons */
+.cta-buttons button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cta-buttons button:hover {
+    background-color: #d98813;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger button */
+    }
+
+    .nav ul {
+        display: none; /* Hide menu initially */
+        flex-direction: column; /* Stack menu items vertically */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 20px;
+        gap: 10px; /* Space between items */
+    }
+
+    .nav ul.open {
+        display: flex; /* Show menu when 'open' class is toggled */
+    }
+
+    .cta-buttons {
+        display: none; /* Optionally hide CTA buttons for smaller screens */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Slideshow Section */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2; /* Keeps placeholder above video initially */
+    transition: opacity 0.5s ease; /* Smooth fade-out effect */
+}
+
+#slideshow-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Keeps video behind placeholder initially */
+    display: none; /* Hide video until it starts playing */
+}
+
+/* Overlay Content */
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 3; /* Ensure overlay content is above video and placeholder */
+}
+
+.slide-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.learn-more {
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: #e67e22;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Bible Quotes Section */
+.bible-quotes {
+    background-color: #141010; /* Default background color */
+    background-image: url('bkground-image.jpg'); /* Optional background image */
+    background-size: cover; /* Make the background image cover the entire section */
+    background-position: center; /* Center the background image */
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure it stays behind the content */
+}
+
+/* Add a semi-transparent overlay if the background image is used */
+.bible-quotes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 5, 5, 0.639); /* Dark overlay */
+    z-index: -1; /* Push it behind the quotes */
+}
+
+/* Quote Container */
+.quote-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Spacing between quotes */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Quote Styling */
+.quote {
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect for quotes */
+.quote:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.quote img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
+}
+
+/* Quote text styling */
+.quote p {
+    margin: 0;
+    text-align: center;
+}
+
+/* Read More styling */
+.read-more {
+    font-size: 16px;
+    color: #f39c12; /* Yellowish color for "Read More" */
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for "Read More" text */
+.read-more:hover {
+    color: #e67e22; /* Darker shade on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .quote-container {
+        grid-template-columns: 1fr; /* Single column layout for small screens */
+    }
+
+    .quote {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+
+
+
+
+
+
+
+
+/* Fullscreen Section with Background Image */
+.image-background-section {
+    background-image: url('background-image.jpg'); /* Add your image */
+    background-size: cover;
+    background-position: center;
+    height: 90vh; /* Full viewport height */
+    display: flex;
+    justify-content: flex-end; /* Align the golden frame to the right */
+    align-items: center;
+    padding-right: 50px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/* Golden Frame with Responsive Size */
+.golden-frame {
+    border: 5px solid gold;
+    padding: 20px;
+    width: 40%; /* Use a percentage width for responsiveness */
+    max-width: 400px; /* Limit max width */
+    height: auto; /* Allow height to adjust with content */
+    min-height: 350px; /* Set a minimum height */
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    text-align: left;
+    font-family: 'Georgia', serif;
+    color: #333;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.golden-frame:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Text Styling for Bible Verses */
+#bible-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4af37;
+    margin: 0;
+    padding: 25px;
+    white-space: pre-wrap;
+    text-align: center;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .image-background-section {
+        flex-direction: column; /* Stack elements on smaller screens */
+        justify-content: center;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .golden-frame {
+        width: 90%; /* Take up most of the screen width */
+        min-height: 300px; /* Adjust for smaller devices */
+        padding: 15px;
+    }
+
+    #bible-text {
+        font-size: 16px; /* Adjust font size for readability */
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+/* Newsletter Form Section */
+.newsletter-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.newsletter-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-container h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.newsletter-container p {
+    font-size: 16px;
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e67e22;
+}
+
+/* Status Message Styling */
+#status-message {
+    font-size: 14px;
+    color: green;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Giving Section */
+.giving-section {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    background: url('background.jpg') center/cover no-repeat; /* Replace 'background.jpg' with your image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Blur and Overlay */
+.giving-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: 1;
+}
+
+/* Content */
+.giving-section .content {
+    position: relative;
+    z-index: 2;
+}
+
+.giving-section .content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.giving-section .content .learn-more {
+    padding: 10px 20px;
+    background-color: #ffc107; /* Yellow button */
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.giving-section .content .learn-more:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+
+
+
+
+
+
+/* Section Layout with Perspective */
+.about-prophet-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 500px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    position: relative;
+    perspective: 1000px; /* Adds 3D perspective */
+    margin-top: 15%;
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+}
+
+/* Left Side Background Image */
+.prophet-image {
+    width: 50%; /* Left side for the image */
+    height: 100%;
+    background-image: url('prophet-image.jpg'); /* Replace with your actual image */
+    background-size: cover;
+    background-position: center;
+    border-radius: 19px 0 0 19px; /* Rounded left corners */
+    position: relative;
+    z-index: 1;
+}
+
+/* Right Side Golden Frame Styling */
+.goldenframeprophet {
+    width: 50%; /* Adjust as needed */
+    padding: 30px;
+    border: 5px solid gold;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease-in-out; /* Smooth transition for the hover effect */
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    right: 0; /* Ensure it's aligned to the right */
+}
+
+/* Title and Text Styling */
+.goldenframeprophet h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.goldenframeprophet p {
+    font-size: 18px;
+    line-height: 2.6;
+    color: #333;
+}
+
+/* Read More Button Styling */
+.read-more-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f39c12; /* Golden button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #e67e22; /* Darker shade on hover */
+}
+
+/* Hover Effect for Golden Frame */
+.goldenframeprophet:hover {
+    transform: rotateX(5deg) rotateY(-5deg); /* Example of tilting more on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow effect on hover */
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    .about-prophet-section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        height: auto; /* Allow section to grow based on content */
+    }
+
+    .prophet-image {
+        width: 90%; /* Take up most of the screen width */
+        height: 300px; /* Set a fixed height for the image */
+        border-radius: 15px; /* Rounded corners for mobile */
+    }
+
+    .goldenframeprophet {
+        width: 90%; /* Full width below the image */
+        margin-top: 20px; /* Add space between the image and text */
+        padding: 20px; /* Reduce padding for smaller screens */
+        text-align: center; /* Center-align text for better readability */
+    }
+
+    .goldenframeprophet h2 {
+        font-size: 24px; /* Smaller font size for titles */
+    }
+
+    .goldenframeprophet p {
+        font-size: 16px; /* Smaller font size for paragraphs */
+    }
+}
+
+
+
+
+/* Section Layout     images of church-products {*/
+.church-products {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+    background-color: #f4f4f4; /* Optional background color */
+    margin-top: 40%;
+    margin-bottom: 40;
+}
+
+/* Product Frame Styling */
+.product-frame {
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(255, 251, 251, 0.694);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Product Image Styling */
+.product-frame img {
+    width: 100px; /* Adjust size based on the product */
+    height: auto;
+    margin-bottom: 15px;
+    pointer-events: none;
+}
+
+/* Floating Effect for Transparent Objects */
+.floating {
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Keyframes for Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0); /* Starting and ending position */
+    }
+    50% {
+        transform: translateY(-10px); /* Move up by 10px */
+    }
+}
+
+/* Learn More Button Styling */
+.learn-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect on Learn More Button */
+.learn-more:hover {
+    background-color: #e67e22;
+}
+
+/* Hover Effect for Product Frame */
+.product-frame:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increased shadow */
+}
+
+
+
+
+
+
+
+/* Position hamburger button on the left */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-right: 15px; /* Add some spacing */
+}
+
+/* Adjust header layout for small screens */
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Show the hamburger button on mobile */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide the nav links initially */
+    .nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #003366;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 1000;
+    }
+
+    /* Show nav links when active */
+    .nav ul.active {
+        display: flex;
+    }
+
+    /* Style each link in the mobile menu */
+    .nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    .nav ul li a {
+        padding: 15px;
+        display: block;
+        color: white;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* WhatsApp Button Styling */
+.whatsapp-button {
+    position: fixed; /* Keeps it fixed on the screen while scrolling */
+    bottom: 20px; /* Distance from the bottom of the screen */
+    right: 20px; /* Distance from the right of the screen */
+    z-index: 1000; /* Ensures it appears above other content */
+    background-color: #25D366; /* WhatsApp green */
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.whatsapp-button img {
+    width: 30px; /* Icon size */
+    height: 30px;
+}
+
+/* Hover effect */
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    background-color: #1EBE56;
+}
+
+
+
+
+
+
+
+
+
+
+/* Event Calendar Section */
+.event-calendar {
+    background: linear-gradient(to bottom, #d4af37, #fff);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* Event Cards */
+.events {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 280px;
+    text-align: center;
+}
+
+.event-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #888;
+}
+
+.event-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Countdown Timer */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.time-block {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.time-number {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.time-label {
+    font-size: 14px;
+}
+
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background-color: #1a1a1a; /* Dark background */
+    color: #ccc; /* Light text */
+    padding: 40px 20px;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer p, .footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffc107; /* Highlight on hover */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+}
+
+.footer-social .social-icons a {
+    color: #ccc;
+    margin-right: 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-icons a:hover {
+    color: #ffc107; /* Yellow hover effect for icons */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+
+
+
+
+
+
+
+/* Responsive Design for mobile devices*/
+@media (max-width: 768px) {
+    /* Header adjustments */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav ul li {
+        margin-bottom: 10px;
+    }
+
+    /* Section adjustments */
+    .section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    /* Images */
+    .section img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    /* Footer adjustments */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer div {
+        margin-bottom: 20px;
+    }
+}
